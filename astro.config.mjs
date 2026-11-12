@@ -10,7 +10,7 @@ import { buildSidebar } from './src/sidebar.mjs';
 //   PROJECT_PAGES  仓库名不是 <user>.github.io 时为 true
 //                  （即部署到 https://<user>.github.io/<repo>/）
 // ─────────────────────────────────────────────────────────────
-const GITHUB_USER = 'your-github-name';
+const GITHUB_USER = 'yinrhh';
 const GITHUB_REPO = 'lares-doc';
 const PROJECT_PAGES = true;
 

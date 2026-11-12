@@ -16,13 +16,11 @@ npm run daily
 
 ```bash
 npm install
-npm run dev        # http://localhost:4321
+npm run dev        # http://localhost:4321/lares-doc/
 ```
 
-首次使用改两处：
-
-1. `astro.config.mjs` 顶部的 `GITHUB_USER` / `GITHUB_REPO`
-2. `package.json` 里的 `name` / `description`（可选）
+仓库已关联 `https://github.com/yinrhh/lares-doc`（私有），
+`astro.config.mjs` 里的 `GITHUB_USER` / `GITHUB_REPO` 已配好，开箱可用。
 
 ## 常用命令
 
@@ -77,20 +75,34 @@ npm run daily          # 再跑一次：刷新汇总并提交推送
 
 笔记末尾的 `今日汇总` 区块由脚本维护（`<!-- daily:auto:start -->` 之间），**不要手改**——每次运行会被覆盖。
 
-## 部署到 GitHub Pages
+## 站点发布（当前未开启）
 
-1. 建仓库并推送：
+仓库是**私有**的，而 GitHub Pages 在免费账号下不支持私有仓库，
+所以 `.github/workflows/deploy.yml` 被改名成 `.disabled` 停用了——
+否则每次 push 都会留一条红色的失败记录。
 
-   ```bash
-   git remote add origin git@github.com:<user>/lares-doc.git
-   git push -u origin main
-   ```
+笔记照常提交、照常在本地看：
 
-2. 仓库 Settings → Pages → Source 选 **GitHub Actions**
-3. 之后每次 `push` 到 `main` 自动构建发布（`.github/workflows/deploy.yml`）
+```bash
+npm run dev      # 本地写、本地预览
+```
 
-仓库名不是 `<user>.github.io` 时，`astro.config.mjs` 里保持 `PROJECT_PAGES = true`，
-站点会挂在 `https://<user>.github.io/<repo>/`；用自定义域名或根仓库则改成 `false`。
+### 想真正发布成网站，二选一
+
+**A. 把仓库改成公开（免费）**
+
+1. Settings → General → 最底部 Change visibility → Public
+2. `git mv .github/workflows/deploy.yml.disabled .github/workflows/deploy.yml`
+3. Settings → Pages → Source 选 **GitHub Actions**
+4. push 一次，站点上线
+
+**B. 升级 GitHub Pro**
+
+私有仓库也能发 Pages，同样把 workflow 改名回 `.yml` 即可。
+
+发布地址会是 `https://yinrhh.github.io/lares-doc/`
+（`astro.config.mjs` 里已按这个地址配好 `site` / `base`）。
+
 
 ## 两个约定
 

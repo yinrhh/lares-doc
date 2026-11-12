@@ -72,15 +72,12 @@ npm run resource -- --category books --title "深入理解计算机系统"
 [主题笔记](../notes/rust-ownership/)
 ```
 
-## 首次配置
+## 远端仓库与发布
 
-1. 打开 `astro.config.mjs`，改掉顶部的 `GITHUB_USER` / `GITHUB_REPO`
-2. 如果仓库名不是 `<user>.github.io`，保持 `PROJECT_PAGES = true`
-3. 关联远程仓库并推送，GitHub Actions 会自动发布到 Pages
+远程仓库已关联：`https://github.com/yinrhh/lares-doc`（**私有**）。
 
-```bash
-git remote add origin git@github.com:<user>/lares-doc.git
-git push -u origin main
-```
+私有仓库在免费账号下用不了 GitHub Pages，所以发布用的 workflow 目前停用中
+（`.github/workflows/deploy.yml.disabled`）。笔记照常提交，只是还没有对外网址。
 
-然后在仓库 Settings → Pages → Source 选 **GitHub Actions**。
+想发布成网站，README 的「站点发布」一节有两条路：把仓库改成公开（免费），或升级 GitHub Pro。
+
