@@ -42,6 +42,11 @@ function rel(path) {
 	return relative(ROOT, path);
 }
 
+/** 抹掉汇总区块里的生成时间，用于判断「除了时间戳有没有真的变化」。 */
+function withoutStamp(text) {
+	return text.replace(/^_由 `npm run daily` 于 .*?_$/m, '');
+}
+
 function classify(paths) {
 	const changes = { daily: [], notes: [], resources: [] };
 
@@ -172,6 +177,9 @@ function main() {
 
 			if (updated === null) {
 				fmt.warn('笔记里缺少 daily:auto 标记，跳过今日汇总（可从 templates/daily.md 找回）');
+			} else if (withoutStamp(updated) === withoutStamp(raw)) {
+				// 只有生成时间不同：不重写，免得平白多出一个 commit
+				fmt.info('今日汇总无变化，略过');
 			} else {
 				writeFileSync(notePath, updated, 'utf8');
 				fmt.ok(noteExisted ? '已更新今日汇总' : `已新建 ${rel(notePath)} 并写入汇总`);
