@@ -1,0 +1,40 @@
+---
+title: 学习笔记
+description: 每日学习记录 · 主题笔记 · 优质学习资源
+template: splash
+hero:
+  tagline: 把每天学到的东西留下来 —— 可检索、可复用、可回溯。
+  actions:
+    - text: 今天的记录
+      link: ./daily/
+      icon: right-arrow
+    - text: 学习资源
+      link: ./resources/
+      icon: open-book
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid>
+	<Card title="每日学习" icon="pen">
+		一天一页。学了什么、收获什么、卡在哪里，当天写完。
+
+		`npm run daily` 一条命令完成：建页面 → 汇总改动 → 更新索引 → 提交推送。
+	</Card>
+	<Card title="主题笔记" icon="notes">
+		值得反复回访的知识，沉淀成按主题组织的常青笔记。每日笔记里的零散收获，最终长成这里的一页。
+	</Card>
+	<Card title="学习资源" icon="open-book">
+		优质课程、书籍、文章、工具的收录与评价。只记真的用过的，写清楚"好在哪里"。
+	</Card>
+	<Card title="这个库怎么用" icon="information">
+		目录约定、写作规范、每天的一键提交流程，都写在一页说明里。
+	</Card>
+</CardGrid>
+
+## 三条规矩
+
+1. **当天写完。** 隔天的记忆会打折，宁可写得粗糙。
+2. **用自己的话。** 复制粘贴不算学习，只算搬运。
+3. **链接不断。** 站内引用一律用相对路径，换部署地址也不会断。

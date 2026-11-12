@@ -1,0 +1,26 @@
+{
+  "name": "lares-doc",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "个人学习笔记库：每日学习记录、主题笔记与优质学习资源，基于 Astro Starlight",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "daily": "node scripts/daily.mjs",
+    "daily:draft": "node scripts/daily.mjs --no-commit",
+    "daily:status": "node scripts/daily.mjs --status",
+    "note": "node scripts/new-note.mjs",
+    "resource": "node scripts/new-resource.mjs"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.40.0",
+    "astro": "^6.4.8"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

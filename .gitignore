@@ -1,0 +1,19 @@
+# 依赖
+node_modules/
+.pnpm-store/
+
+# 构建产物
+dist/
+.astro/
+
+# 本地缓存（见 .npmrc）
+.cache/
+
+# 系统与日志
+.DS_Store
+*.log
+
+# 密钥与环境变量
+.env
+.env.*
+!.env.example
