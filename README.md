@@ -19,7 +19,8 @@ npm install
 npm run dev        # http://localhost:4321/lares-doc/
 ```
 
-仓库已关联 `https://github.com/yinrhh/lares-doc`（私有），
+仓库：[yinrhh/lares-doc](https://github.com/yinrhh/lares-doc)（公开）
+网站：**https://yinrhh.github.io/lares-doc/**
 `astro.config.mjs` 里的 `GITHUB_USER` / `GITHUB_REPO` 已配好，开箱可用。
 
 ## 常用命令
@@ -75,33 +76,24 @@ npm run daily          # 再跑一次：刷新汇总并提交推送
 
 笔记末尾的 `今日汇总` 区块由脚本维护（`<!-- daily:auto:start -->` 之间），**不要手改**——每次运行会被覆盖。
 
-## 站点发布（当前未开启）
+## 网站
 
-仓库是**私有**的，而 GitHub Pages 在免费账号下不支持私有仓库，
-所以 `.github/workflows/deploy.yml` 被改名成 `.disabled` 停用了——
-否则每次 push 都会留一条红色的失败记录。
+已发布：**https://yinrhh.github.io/lares-doc/**
 
-笔记照常提交、照常在本地看：
+仓库公开，Pages 由 GitHub Actions 自动构建（`.github/workflows/deploy.yml`）：
+push 到 `main` → 跑 `astro build` → 把 `dist/` 发到 Pages，一两分钟后线上更新。
+
+本地预览：
 
 ```bash
-npm run dev      # 本地写、本地预览
+npm run dev      # http://localhost:4321/lares-doc/
 ```
 
-### 想真正发布成网站，二选一
+注意本地地址带 `/lares-doc/` 前缀（`astro.config.mjs` 里的 `base`），
+直接开 `localhost:4321` 会 404。
 
-**A. 把仓库改成公开（免费）**
-
-1. Settings → General → 最底部 Change visibility → Public
-2. `git mv .github/workflows/deploy.yml.disabled .github/workflows/deploy.yml`
-3. Settings → Pages → Source 选 **GitHub Actions**
-4. push 一次，站点上线
-
-**B. 升级 GitHub Pro**
-
-私有仓库也能发 Pages，同样把 workflow 改名回 `.yml` 即可。
-
-发布地址会是 `https://yinrhh.github.io/lares-doc/`
-（`astro.config.mjs` 里已按这个地址配好 `site` / `base`）。
+改了仓库名或想用自定义域名，记得同步改 `astro.config.mjs` 里的
+`GITHUB_REPO` / `PROJECT_PAGES`。
 
 
 ## 两个约定

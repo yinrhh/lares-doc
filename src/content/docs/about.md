@@ -74,10 +74,11 @@ npm run resource -- --category books --title "深入理解计算机系统"
 
 ## 远端仓库与发布
 
-远程仓库已关联：`https://github.com/yinrhh/lares-doc`（**私有**）。
+| | |
+| --- | --- |
+| 仓库 | [yinrhh/lares-doc](https://github.com/yinrhh/lares-doc)（公开） |
+| 网站 | [yinrhh.github.io/lares-doc](https://yinrhh.github.io/lares-doc/) |
 
-私有仓库在免费账号下用不了 GitHub Pages，所以发布用的 workflow 目前停用中
-（`.github/workflows/deploy.yml.disabled`）。笔记照常提交，只是还没有对外网址。
-
-想发布成网站，README 的「站点发布」一节有两条路：把仓库改成公开（免费），或升级 GitHub Pro。
+push 到 `main` 会触发 GitHub Actions 自动构建，一两分钟后线上更新
+（内容在 `src/content/docs/`，构建配置在 `astro.config.mjs`）。
 
